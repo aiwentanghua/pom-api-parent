@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pom.api.gxg.service.account.dao.PureUserMapper">
+  <resultMap id="BaseResultMap" type="pom.api.gxg.service.account.domain.PureUser">
+    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="LOGIN_ID" jdbcType="VARCHAR" property="loginId" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="ADMIN" jdbcType="DECIMAL" property="admin" />
+    <result column="SEX" jdbcType="DECIMAL" property="sex" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="TELEPHONE" jdbcType="VARCHAR" property="telephone" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="PWD_STATE" jdbcType="DECIMAL" property="pwdState" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="REG_DATE" jdbcType="TIMESTAMP" property="regDate" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="DEPT" jdbcType="VARCHAR" property="dept" />
+    <result column="IMAGE" jdbcType="CLOB" property="image" />
+  </resultMap>
+  <insert id="insert" parameterType="pom.api.gxg.service.account.domain.PureUser">
+    insert into PURE_USER (USER_ID, LOGIN_ID, PASSWORD,
+      USER_NAME, ADMIN, SEX,
+      EMAIL, MOBILE, TELEPHONE,
+      STATE, PWD_STATE, MEMO,
+      REG_DATE, UPDATE_DATE, DEPT,
+      IMAGE)
+    values (#{userId,jdbcType=DECIMAL}, #{loginId,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{userName,jdbcType=VARCHAR}, #{admin,jdbcType=DECIMAL}, #{sex,jdbcType=DECIMAL},
+      #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR},
+      #{state,jdbcType=DECIMAL}, #{pwdState,jdbcType=DECIMAL}, #{memo,jdbcType=VARCHAR},
+      #{regDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{dept,jdbcType=VARCHAR},
+      #{image,jdbcType=CLOB})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select USER_ID, LOGIN_ID, PASSWORD, USER_NAME, ADMIN, SEX, EMAIL, MOBILE, TELEPHONE,
+    STATE, PWD_STATE, MEMO, REG_DATE, UPDATE_DATE, DEPT, IMAGE
+    from PURE_USER
+  </select>
+</mapper>

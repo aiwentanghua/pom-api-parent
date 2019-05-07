@@ -1,0 +1,49 @@
+2019-04-10 11:28:46.844 [main] INFO  pom.WebSiteBootstrap - Starting WebSiteBootstrap on localhost with PID 19907 (/Users/tang/Downloads/idea_sourcecode/pom-api-parent/pom-api-website/target/classes started by tang in /Users/tang/Downloads/idea_sourcecode/pom-api-parent)
+2019-04-10 11:28:46.848 [main] INFO  pom.WebSiteBootstrap - The following profiles are active: test
+2019-04-10 11:28:46.935 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@57c758ac: startup date [Wed Apr 10 11:28:46 CST 2019]; root of context hierarchy
+2019-04-10 11:28:47.156 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2019-04-10 11:28:47.902 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[pom]' package. Please check your configuration.
+2019-04-10 11:28:48.019 [main] WARN  o.s.c.a.ConfigurationClassPostProcessor - Cannot enhance @Configuration bean definition 'mybatisConfigurer' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2019-04-10 11:28:48.327 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$827ffe7a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-10 11:28:48.740 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8091 (http)
+2019-04-10 11:28:48.751 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-04-10 11:28:48.752 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+2019-04-10 11:28:48.860 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-04-10 11:28:48.861 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1926 ms
+2019-04-10 11:28:49.050 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2019-04-10 11:28:49.057 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-04-10 11:28:49.058 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-04-10 11:28:49.058 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-04-10 11:28:49.058 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-04-10 11:28:49.815 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/getIp],methods=[POST]}" onto public java.lang.String pom.api.gxg.controller.IpController.getIp(javax.servlet.http.HttpServletRequest)
+2019-04-10 11:28:49.816 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/o2oorder.add],methods=[POST]}" onto public pom.api.gxg.apiresult.Result pom.api.gxg.controller.O2OorderController.O2OorderAdd(javax.servlet.http.HttpServletRequest) throws java.io.IOException
+2019-04-10 11:28:49.816 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/o2oorder.getstock],methods=[POST],produces=[text/xml;charset=utf-8]}" onto public pom.api.gxg.apiresult.Result pom.api.gxg.controller.O2OorderController.getStock(pom.api.gxg.service.account.domain.o2ostockDomain) throws java.io.IOException
+2019-04-10 11:28:49.817 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/order.test],methods=[POST]}" onto public pom.api.gxg.apiresult.Result pom.api.gxg.controller.YunorderController.test(pom.api.gxg.service.account.entity.cainiao.BosPassMeYunorder)
+2019-04-10 11:28:49.817 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/order.yun],methods=[POST]}" onto public pom.api.gxg.apiresult.Result pom.api.gxg.controller.YunorderController.orderYun(pom.api.gxg.service.account.entity.cainiao.BosPassMeYunorder)
+2019-04-10 11:28:49.818 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/order.cancel],methods=[POST]}" onto public pom.api.gxg.apiresult.Result pom.api.gxg.controller.YunorderController.ordercancel(pom.api.gxg.service.account.entity.cainiao.BosPassMeYunorder)
+2019-04-10 11:28:49.819 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2019-04-10 11:28:49.823 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-04-10 11:28:49.824 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2019-04-10 11:28:49.824 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2019-04-10 11:28:49.828 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-04-10 11:28:49.828 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-04-10 11:28:50.241 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@57c758ac: startup date [Wed Apr 10 11:28:46 CST 2019]; root of context hierarchy
+2019-04-10 11:28:50.287 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-10 11:28:50.287 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-10 11:28:50.309 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-10 11:28:50.492 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2019-04-10 11:28:50.493 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-04-10 11:28:50.498 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2019-04-10 11:28:50.501 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147483647
+2019-04-10 11:28:50.501 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2019-04-10 11:28:50.523 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-04-10 11:28:50.533 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2019-04-10 11:28:50.779 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2019-04-10 11:28:50.785 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2019-04-10 11:28:50.814 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-04-10 11:28:50.828 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8091 (http)
+2019-04-10 11:28:50.834 [main] INFO  pom.WebSiteBootstrap - Started WebSiteBootstrap in 4.777 seconds (JVM running for 5.492)
+2019-04-10 11:28:53.202 [Thread-13] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@57c758ac: startup date [Wed Apr 10 11:28:46 CST 2019]; root of context hierarchy
+2019-04-10 11:28:53.204 [Thread-13] INFO  o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147483647
+2019-04-10 11:28:53.205 [Thread-13] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2019-04-10 11:28:53.206 [Thread-13] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans

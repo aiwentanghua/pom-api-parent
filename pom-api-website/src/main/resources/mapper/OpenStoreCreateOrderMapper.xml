@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pom.api.gxg.service.account.dao.OpenStoreCreateOrderMapper">
+    <resultMap id="OrderResultMap" type="pom.api.gxg.service.account.domain.CaiNiaoorderDomain">
+        <result column="StoreInfoDTOownName" jdbcType="VARCHAR" property="StoreInfoDTOownName"/>
+        <result column="StoreInfoDTOaddress" jdbcType="VARCHAR" property="StoreInfoDTOaddress"/>
+        <result column="StoreInfoDTOprovName" jdbcType="VARCHAR" property="StoreInfoDTOprovName"/>
+        <result column="StoreInfoDTOcityName" jdbcType="VARCHAR" property="StoreInfoDTOcityName"/>
+        <result column="StoreInfoDTOphone" jdbcType="VARCHAR" property="StoreInfoDTOphone"/>
+        <result column="StoreInfoDTOname" jdbcType="VARCHAR" property="StoreInfoDTOname"/>
+        <result column="StoreInfoDTOdetailAddress" jdbcType="VARCHAR" property="StoreInfoDTOdetailAddress"/>
+        <result column="StoreInfoDTOstorePhone" jdbcType="VARCHAR" property="StoreInfoDTOstorePhone"/>
+        <result column="StoreInfoDTOstoreContact" jdbcType="VARCHAR" property="StoreInfoDTOstoreContact"/>
+        <result column="StoreInfoDTOstoreName" jdbcType="VARCHAR" property="StoreInfoDTOstoreName"/>
+        <result column="storeId" jdbcType="VARCHAR" property="storeId"/>
+        <result column="townName" jdbcType="VARCHAR" property="townName"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="provName" jdbcType="VARCHAR" property="provName"/>
+        <result column="cityName" jdbcType="VARCHAR" property="cityName"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="detailAddress" jdbcType="VARCHAR" property="detailAddress"/>
+    </resultMap>
+    <!--<resultMap id="OrderendResultMap" type="pom.api.gxg.service.account.domain.CaiNiaoorderendDomain">
+
+        <result column="printData" jdbcType="VARCHAR" property="printData" />
+        <result column="carrierId" jdbcType="VARCHAR" property="cpCode"/>
+        <result column="carrierName" jdbcType="VARCHAR" property="cpName" />
+        <result column="orderId" jdbcType="VARCHAR" property="orderId" />
+        <result column="fastNo" jdbcType="VARCHAR" property="mailNo" />
+    </resultMap>-->
+
+    <select id="getorder" parameterType="java.lang.String" resultMap="OrderResultMap">
+SELECT
+	a.id,a.payment,
+	f.name AS StoreInfoDTOownName,--门店地址_区名称
+	b.address AS StoreInfoDTOaddress,--门店地址_地址信息
+	g.name AS StoreInfoDTOprovName,--门店地址_省名称
+	c.name AS StoreInfoDTOcityName,--门店地址_市名称
+	b.mobil AS StoreInfoDTOphone,--门店地址_手机
+	b.contactor StoreInfoDTOname,--门店地址_人员名称
+	b.address AS StoreInfoDTOdetailAddress,--详细地址
+	b.phone AS StoreInfoDTOstorePhone,--门店信息_门店联系方式
+	b.contactor AS StoreInfoDTOstoreContact,--门店信息_门店联系人
+	b.name AS StoreInfoDTOstoreName,--门店信息_门店名称
+	b.code AS storeId,
+	a.receiver_district AS townName,--收件人信息_区名称
+	a.receiver_address AS address,--收件人信息_地址信息
+	d.name AS provName,--收件人信息_省名称
+	e.name AS cityName,--收件人信息_市名称
+	a.receiver_mobile AS phone,--收件人信息_手机
+	a.receiver_name AS name,--收件人信息_人员姓名
+	a.receiver_address AS detailAddress --收件人信息_详细地址
+
+FROM
+	eb_soout a
+	LEFT JOIN c_store b ON a.c_orig_id = b.id
+	LEFT JOIN c_province d ON a.c_province_id = d.id
+	LEFT JOIN c_city e ON a.c_city_id = e.id
+	LEFT JOIN c_district f ON b.c_district_id = f.id
+	LEFT JOIN c_city c ON b.c_city_id = c.id
+	LEFT JOIN c_province g ON b.c_province_id = g.id
+	LEFT JOIN C_RANGE h ON a.C_RANGE_id = h.id
+WHERE
+	a.id = #{id}
+</select>
+
+    <update id="update" parameterType="pom.api.gxg.service.account.domain.CaiNiaoorderendDomain">
+
+		update eb_orderso set
+		printData=#{printData},
+		carrierId=#{cpCode},
+		eb_express_id=(select id from eb_express where name=#{cpName}),
+		orderId=#{orderId},
+		fastNo=#{mailNo}
+		where id=#{id}
+
+	</update>
+
+    <select id="getordercode" parameterType="java.lang.String" resultType="java.lang.String">
+
+		select orderId from eb_soout where id=#{id}
+
+	</select>
+
+	<resultMap id="OrderResultMapItem" type="pom.api.gxg.service.account.domain.CaiNiaoorderDomainItem">
+		<result column="no" jdbcType="VARCHAR" property="name"/>
+		<result column="qty" jdbcType="DECIMAL" property="count"/>
+	</resultMap>
+
+    <select id="getorderitem" parameterType="java.lang.String" resultMap="OrderResultMapItem">
+
+	  SELECT
+		b.no,
+		a.qty
+	  FROM
+		EB_SOITEM a
+	  LEFT JOIN M_PRODUCT_ALIAS b ON a.M_PRODUCTALIAS_ID = b.id
+	  WHERE
+	    a.EB_SO_ID = #{id}
+
+	</select>
+</mapper>

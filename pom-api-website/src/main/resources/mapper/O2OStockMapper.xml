@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pom.api.gxg.service.account.dao.O2OStockMapper">
+
+  <select id="getStock" resultType="java.lang.String">
+SELECT t.qtycan
+FROM v_fa_storage t
+WHERE EXISTS (SELECT 1
+       FROM c_store a
+       WHERE t.c_store_id = a.id
+       AND a.code = #{order_sn}) --店仓编号
+AND EXISTS (SELECT 1
+       FROM m_product_alias b
+       WHERE t.m_product_id = b.m_product_id
+       AND t.m_attributesetinstance_id = b.m_attributesetinstance_id
+       AND b.no = #{outer_code}) --条码编号;
+</select>
+</mapper>
